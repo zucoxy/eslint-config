@@ -204,6 +204,7 @@ module.exports = {
     },
   ],
   rules: {
+    'prefer-promise-reject-errors': 'off',
     // import
     'import/order': 'error',
     'import/first': 'error',
