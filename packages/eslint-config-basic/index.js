@@ -204,7 +204,6 @@ module.exports = {
     },
   ],
   rules: {
-    'prefer-promise-reject-errors': 'off',
     // import
     'import/order': 'error',
     'import/first': 'error',
@@ -219,7 +218,7 @@ module.exports = {
     'quotes': ['error', 'single'],
     'quote-props': ['error', 'consistent-as-needed'],
 
-    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-imports': 'off',
     'unused-imports/no-unused-vars': [
       'warn',
       { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
