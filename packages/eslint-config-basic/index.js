@@ -372,9 +372,9 @@ module.exports = {
     'yml/no-empty-document': 'off',
 
     // unyu
-    'unyu/if-newline': 'error',
+    'unyu/if-newline': 'off',
     'unyu/import-dedupe': 'error',
-    'unyu/top-level-function': 'error',
+    'unyu/top-level-function': 'off',
     // 'unyu/prefer-inline-type-import': 'error',
   },
 }
