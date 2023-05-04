@@ -1,0 +1,6 @@
+{
+  "extends": "@unyu",
+  "plugins": [
+    "unyu"
+  ]
+}

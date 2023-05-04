@@ -1,0 +1,26 @@
+{
+  "name": "@unyu/eslint-config-vue",
+  "version": "0.1.0",
+  "description": "",
+  "author": "zucoxy <1078119795@qq.com> (https://github.com/zucoxy/)",
+  "license": "MIT",
+  "keywords": [
+    "eslint-config"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "dependencies": {
+    "@unyu/eslint-config-basic": "workspace:*",
+    "@unyu/eslint-config-ts": "workspace:*",
+    "eslint-plugin-vue": "^9.11.0",
+    "local-pkg": "^0.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0"
+  }
+}
