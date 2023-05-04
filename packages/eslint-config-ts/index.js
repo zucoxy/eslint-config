@@ -158,6 +158,13 @@ module.exports = {
 
     // unyu
     'unyu/generic-spacing': 'error',
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "endOfLine": "auto"
+      }
+    ],
 
     // off
     '@typescript-eslint/consistent-indexed-object-style': 'off',
@@ -174,6 +181,7 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/triple-slash-reference': 'off',
     'prefer-promise-reject-errors': 'off',
+    "@typescript-eslint/no-var-requires": "off",
     // handled by unused-imports/no-unused-imports
     '@typescript-eslint/no-unused-vars': 'off',
   },
