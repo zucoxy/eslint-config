@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-unyu",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "license": "MIT",
   "homepage": "https://github.com/zucoxy/eslint-config",
   "main": "./dist/index.cjs",
