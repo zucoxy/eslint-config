@@ -214,7 +214,7 @@ module.exports = {
 
     // Common
     'semi': ['error', 'always'],
-    'curly': ['error', 'multi-or-nest', 'consistent'],
+    'curly': ['error', 'multi-line'],
     'quotes': ['error', 'single'],
     'quote-props': ['error', 'consistent-as-needed'],
 
@@ -225,6 +225,7 @@ module.exports = {
     ],
 
     'no-param-reassign': 'off',
+    'no-mixed-operators': 'off',
     'array-bracket-spacing': ['error', 'never'],
     'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
     'block-spacing': ['error', 'always'],
@@ -285,7 +286,7 @@ module.exports = {
     'prefer-spread': 'error',
     'prefer-template': 'error',
     'template-curly-spacing': 'error',
-    'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
+    'arrow-parens': ['error', 'as-needed'],
     'generator-star-spacing': 'off',
     'spaced-comment': ['error', 'always', {
       line: {
@@ -316,7 +317,7 @@ module.exports = {
     'vars-on-top': 'error',
     'require-await': 'off',
     'no-return-assign': 'off',
-    'operator-linebreak': ['error', 'before'],
+    'operator-linebreak': ['off'],
     'max-statements-per-line': ['error', { max: 1 }],
 
     // node
