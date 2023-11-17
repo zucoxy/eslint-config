@@ -164,13 +164,6 @@ module.exports = {
 
     // unyu
     'unyu/generic-spacing': 'error',
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "endOfLine": "auto"
-      }
-    ],
 
     // off
     '@typescript-eslint/consistent-indexed-object-style': 'off',
