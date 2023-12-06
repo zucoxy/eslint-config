@@ -216,7 +216,7 @@ module.exports = {
     'semi': ['error', 'always'],
     'curly': ['error', 'multi-line'],
     'quotes': ['error', 'single'],
-    'quote-props': ['error', 'consistent-as-needed'],
+    'quote-props': ['error', 'as-needed'],
 
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [

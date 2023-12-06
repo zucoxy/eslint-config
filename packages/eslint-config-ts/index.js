@@ -66,13 +66,7 @@ module.exports = {
 
     // TS
     '@typescript-eslint/ban-ts-comment': ['off'],
-    '@typescript-eslint/member-delimiter-style': ["error",
-      {
-        "singleline": {
-          "delimiter": "semi",
-          "requireLast": true
-        }
-      }],
+    '@typescript-eslint/member-delimiter-style': ['off'],
     '@typescript-eslint/type-annotation-spacing': ['error', {}],
     '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', disallowTypeAnnotations: false }],
     '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
