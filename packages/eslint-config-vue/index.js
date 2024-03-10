@@ -62,7 +62,6 @@ module.exports = {
     'vue/no-unused-refs': 'warn',
     'vue/padding-line-between-blocks': ['error', 'always'],
     'vue/prefer-separate-static-class': 'error',
-    "vue/attribute-hyphenation": "off",
 
     // extensions
     'vue/array-bracket-spacing': ['error', 'never'],
