@@ -29,7 +29,11 @@ module.exports = {
       : '@unyu/eslint-config-basic',
   ],
   rules: {
-    'vue/max-attributes-per-line': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/max-attributes-per-line': ['error', {
+      singleline: 4, // 单行最大属性个数
+      multiline: 1
+    }],
     'vue/no-v-html': 'off',
     'vue/require-prop-types': 'off',
     'vue/require-default-prop': 'off',
