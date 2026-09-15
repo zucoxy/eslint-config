@@ -1,6 +1,7 @@
 {
   "name": "@unyu/eslint-config-monorepo",
   "version": "1.0.0",
+  "private": true,
   "packageManager": "pnpm@10.34.5",
   "author": "unyu <1078119795@qq.com> (https://github.com/zucoxy/)",
   "license": "MIT",

@@ -1,6 +1,10 @@
 {
   "name": "@unyu/eslint-config",
   "version": "1.0.0",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "description": "unyu's ESLint config",
   "author": "zucoxy <1078119795@qq.com> (https://github.com/zucoxy/)",
   "license": "MIT",
