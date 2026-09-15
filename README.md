@@ -10,6 +10,16 @@
 - Reasonable defaults, best practices, only one-line of config
 - **Style principle**: Minimal for reading, stable for diff
 
+## Version lines
+
+| Version | ESLint | Config format |
+| --- | --- | --- |
+| 1.x | `^8.57.0` | `.eslintrc` + flat config |
+| 2.x | `^9.0.0` | `.eslintrc` + flat config |
+| 3.x | `^10.0.0` | flat config only |
+
+Install the line that matches your ESLint major. All lines require Node.js >= 20.19.0.
+
 ## Usage
 
 ### Install
@@ -18,32 +28,40 @@
 pnpm add -D eslint @unyu/eslint-config
 ```
 
-> Requires Node.js >= 20.19.0 and ESLint ^9.0.0.
+### Config `eslint.config.js`
 
-### Config `.eslintrc`
-
-```json
-{
-  "extends": "@unyu"
-}
-```
-
-> You don't need `.eslintignore` normally as it has been provided by the preset.
->
-> The `.eslintrc` format is deprecated. It still works on ESLint 9 but requires `ESLINT_USE_FLAT_CONFIG=false`; new projects should use the flat config below.
-
-### Config `eslint.config.js` (Flat Config)
-
-Flat config is the default from ESLint 9. Use the `/flat` entry which wraps the same rules:
+From v3 the package itself exports a flat config array:
 
 ```js
 // eslint.config.js
-const unyu = require('@unyu/eslint-config/flat');
+const unyu = require('@unyu/eslint-config');
 
 module.exports = [
   ...unyu,
 ];
 ```
+
+> ESLint 10 removed the `.eslintrc` format entirely, so v3 only ships flat config.
+> If you are still on `.eslintrc` / ESLint 8 or 9, use v1.x / v2.x.
+> `@unyu/eslint-config/flat` is kept as an alias of the same entry point, so an
+> existing `require('@unyu/eslint-config/flat')` keeps working after upgrading.
+>
+> `eslint-plugin-import` and `eslint-plugin-react` do not declare ESLint 10 support yet
+> (their peer range still ends at `^9`). Their rules work fine on ESLint 10; to silence
+> the install warning, allow it in your root `package.json`:
+>
+> ```json
+> {
+>   "pnpm": {
+>     "peerDependencyRules": {
+>       "allowedVersions": {
+>         "eslint-plugin-import>eslint": "10",
+>         "eslint-plugin-react>eslint": "10"
+>       }
+>     }
+>   }
+> }
+> ```
 
 ### Add script for package.json
 
@@ -77,12 +95,14 @@ Install [VS Code ESLint extension](https://marketplace.visualstudio.com/items?it
 Type aware rules are enabled when a `tsconfig.eslint.json` is found in the project root, which will introduce some stricter rules into your project. If you want to enable it while have no `tsconfig.eslint.json` in the project root, you can change tsconfig name by modifying `ESLINT_TSCONFIG` env. 
 
 ```js
-// .eslintrc.js
+// eslint.config.js
 process.env.ESLINT_TSCONFIG = 'tsconfig.json';
 
-module.exports = {
-  extends: '@unyu',
-};
+const unyu = require('@unyu/eslint-config');
+
+module.exports = [
+  ...unyu,
+];
 ```
 
 ### Lint Staged

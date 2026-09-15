@@ -1,5 +1,1 @@
-module.exports = {
-  extends: [
-    '@unyu/eslint-config-vue',
-  ],
-};
+module.exports = require('@unyu/eslint-config-vue');

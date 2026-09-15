@@ -1,4 +1,4 @@
-const unyu = require('@unyu/eslint-config/flat');
+const unyu = require('@unyu/eslint-config');
 
 module.exports = [
   ...unyu,

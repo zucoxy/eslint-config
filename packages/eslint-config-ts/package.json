@@ -1,6 +1,6 @@
 {
   "name": "@unyu/eslint-config-ts",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
@@ -14,7 +14,7 @@
   ],
   "exports": {
     ".": "./index.js",
-    "./flat": "./flat.js",
+    "./flat": "./index.js",
     "./package.json": "./package.json"
   },
   "main": "index.js",
@@ -25,17 +25,15 @@
     "node": ">=20.19.0"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0",
+    "eslint": "^10.0.0",
     "typescript": ">=4.8.4"
   },
   "dependencies": {
-    "@eslint/eslintrc": "^3.3.7",
-    "@typescript-eslint/eslint-plugin": "^8.70.0",
-    "@typescript-eslint/parser": "^8.70.0",
     "@unyu/eslint-config-basic": "workspace:*",
-    "eslint-plugin-jest": "^29.16.6"
+    "eslint-plugin-jest": "^29.16.6",
+    "typescript-eslint": "^8.70.0"
   },
   "devDependencies": {
-    "eslint": "^9.39.5"
+    "eslint": "^10.10.0"
   }
 }

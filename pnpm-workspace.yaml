@@ -4,3 +4,11 @@ packages:
 # pnpm 10 起默认不执行依赖的构建脚本，需要显式放行
 onlyBuiltDependencies:
   - esbuild
+
+# eslint-plugin-import / eslint-plugin-react 目前还没声明支持 ESLint 10（peer 只写到 ^9），
+# 但实测其规则在 ESLint 10 上工作正常，先显式放行避免安装时的 peer 警告。
+# 上游声明支持 10 之后应删掉这一段。
+peerDependencyRules:
+  allowedVersions:
+    eslint-plugin-import>eslint: '10'
+    eslint-plugin-react>eslint: '10'

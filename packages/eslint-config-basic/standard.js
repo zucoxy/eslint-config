@@ -1,27 +1,32 @@
 // Inline from https://github.com/standard/eslint-config-standard/blob/master/.eslintrc.json
 // Until it upgrades
 
+const globals = require('globals');
+const nPlugin = require('eslint-plugin-n');
+const promisePlugin = require('eslint-plugin-promise');
+
 module.exports = {
-  parserOptions: {
+  name: '@unyu/basic/standard',
+  languageOptions: {
     ecmaVersion: 2022,
-    ecmaFeatures: {
-      jsx: true,
-    },
     sourceType: 'module',
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
+    globals: {
+      ...globals.es2021,
+      ...globals.node,
+      document: 'readonly',
+      navigator: 'readonly',
+      window: 'readonly',
+    },
   },
-  env: {
-    es2021: true,
-    node: true,
-  },
-  plugins: [
-    'import',
-    'n',
-    'promise',
-  ],
-  globals: {
-    document: 'readonly',
-    navigator: 'readonly',
-    window: 'readonly',
+  plugins: {
+    // `import` 由 eslint-plugin-import 的 flat config 注册，这里不能重复注册
+    n: nPlugin,
+    promise: promisePlugin,
   },
   rules: {
     'no-var': 'warn',
