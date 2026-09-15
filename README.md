@@ -18,7 +18,7 @@
 pnpm add -D eslint @unyu/eslint-config
 ```
 
-> Requires Node.js >= 20.19.0 and ESLint ^8.57.0.
+> Requires Node.js >= 20.19.0 and ESLint ^9.0.0.
 
 ### Config `.eslintrc`
 
@@ -29,10 +29,12 @@ pnpm add -D eslint @unyu/eslint-config
 ```
 
 > You don't need `.eslintignore` normally as it has been provided by the preset.
+>
+> The `.eslintrc` format is deprecated. It still works on ESLint 9 but requires `ESLINT_USE_FLAT_CONFIG=false`; new projects should use the flat config below.
 
 ### Config `eslint.config.js` (Flat Config)
 
-For flat config, use the `/flat` entry which wraps the same rules. On ESLint 8.57 enable it with `ESLINT_USE_FLAT_CONFIG=true`; from ESLint 9 it is the default:
+Flat config is the default from ESLint 9. Use the `/flat` entry which wraps the same rules:
 
 ```js
 // eslint.config.js
