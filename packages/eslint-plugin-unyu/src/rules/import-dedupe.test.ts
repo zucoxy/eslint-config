@@ -1,21 +1,24 @@
-import { RuleTester } from '@typescript-eslint/utils/dist/ts-eslint'
-import { it } from 'vitest'
-import rule, { RULE_NAME } from './import-dedupe'
+import { createRequire } from 'node:module';
+import { RuleTester } from '@typescript-eslint/utils/ts-eslint';
+import { it } from 'vitest';
+import rule, { RULE_NAME } from './import-dedupe';
+
+const require = createRequire(import.meta.url);
 
 const valids = [
   'import { a } from \'foo\'',
-]
+];
 const invalids = [
   [
     'import { a, b, a, a, c, a } from \'foo\'',
     'import { a, b,   c,  } from \'foo\'',
   ],
-]
+];
 
 it('runs', () => {
   const ruleTester: RuleTester = new RuleTester({
     parser: require.resolve('@typescript-eslint/parser'),
-  })
+  });
 
   ruleTester.run(RULE_NAME, rule, {
     valid: valids,
@@ -24,5 +27,5 @@ it('runs', () => {
       output: i[1],
       errors: [{ messageId: 'importDedupe' }, { messageId: 'importDedupe' }, { messageId: 'importDedupe' }],
     })),
-  })
-})
+  });
+});

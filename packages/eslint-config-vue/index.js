@@ -1,9 +1,10 @@
-const { isPackageExists } = require('local-pkg')
+const { isPackageExists } = require('local-pkg');
 
-const TS = isPackageExists('typescript')
+const TS = isPackageExists('typescript');
 
-if (!TS)
-  console.warn('[@unyu/eslint-config] TypeScript is not installed, fallback to JS only.')
+if (!TS) {
+  console.warn('[@unyu/eslint-config] TypeScript is not installed, fallback to JS only.');
+}
 
 module.exports = {
   overrides: [
@@ -23,7 +24,7 @@ module.exports = {
     },
   ],
   extends: [
-    'plugin:vue/vue3-recommended',
+    'plugin:vue/recommended',
     TS
       ? '@unyu/eslint-config-ts'
       : '@unyu/eslint-config-basic',
@@ -32,7 +33,7 @@ module.exports = {
     'vue/singleline-html-element-content-newline': 'off',
     'vue/max-attributes-per-line': ['error', {
       singleline: 4, // 单行最大属性个数
-      multiline: 1
+      multiline: 1,
     }],
     'vue/no-v-html': 'off',
     'vue/require-prop-types': 'off',
@@ -43,9 +44,9 @@ module.exports = {
     'vue/no-v-text-v-html-on-component': 'off',
 
     // reactivity transform
-    'vue/no-setup-props-destructure': 'off',
+    'vue/no-setup-props-reactivity-loss': 'off',
 
-    'vue/component-tags-order': ['error', {
+    'vue/block-order': ['error', {
       order: ['script', 'template', 'style'],
     }],
     'vue/block-tag-newline': ['error', {
@@ -112,4 +113,4 @@ module.exports = {
     'vue/space-unary-ops': ['error', { words: true, nonwords: false }],
     'vue/template-curly-spacing': 'error',
   },
-}
+};

@@ -18,6 +18,8 @@
 pnpm add -D eslint @unyu/eslint-config
 ```
 
+> Requires Node.js >= 20.19.0 and ESLint ^8.57.0.
+
 ### Config `.eslintrc`
 
 ```json
@@ -27,6 +29,19 @@ pnpm add -D eslint @unyu/eslint-config
 ```
 
 > You don't need `.eslintignore` normally as it has been provided by the preset.
+
+### Config `eslint.config.js` (Flat Config)
+
+For flat config, use the `/flat` entry which wraps the same rules. On ESLint 8.57 enable it with `ESLINT_USE_FLAT_CONFIG=true`; from ESLint 9 it is the default:
+
+```js
+// eslint.config.js
+const unyu = require('@unyu/eslint-config/flat');
+
+module.exports = [
+  ...unyu,
+];
+```
 
 ### Add script for package.json
 
@@ -61,11 +76,11 @@ Type aware rules are enabled when a `tsconfig.eslint.json` is found in the proje
 
 ```js
 // .eslintrc.js
-process.env.ESLINT_TSCONFIG = 'tsconfig.json'
+process.env.ESLINT_TSCONFIG = 'tsconfig.json';
 
 module.exports = {
-  extends: '@unyu'
-}
+  extends: '@unyu',
+};
 ```
 
 ### Lint Staged

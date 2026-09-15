@@ -36,7 +36,7 @@ module.exports = {
     'arrow-spacing': ['error', { before: true, after: true }],
     'block-spacing': ['error', 'always'],
     'brace-style': ['error', '1tbs', { allowSingleLine: true }],
-    'camelcase': ['error', {
+    camelcase: ['error', {
       allow: ['^UNSAFE_'],
       properties: 'never',
       ignoreGlobals: true,
@@ -52,15 +52,15 @@ module.exports = {
     'comma-style': ['error', 'last'],
     'computed-property-spacing': ['error', 'never', { enforceForClassMembers: true }],
     'constructor-super': 'error',
-    'curly': ['error', 'multi-line'],
+    curly: ['error', 'multi-line'],
     'default-case-last': 'error',
     'dot-location': ['error', 'property'],
     'dot-notation': ['error', { allowKeywords: true }],
     'eol-last': 'error',
-    'eqeqeq': ['error', 'always', { null: 'ignore' }],
+    eqeqeq: ['error', 'always', { null: 'ignore' }],
     'func-call-spacing': ['error', 'never'],
     'generator-star-spacing': ['error', { before: true, after: true }],
-    'indent': ['error', 2, {
+    indent: ['error', 2, {
       SwitchCase: 1,
       VariableDeclarator: 1,
       outerIIFEBody: 1,
@@ -197,9 +197,9 @@ module.exports = {
     'prefer-promise-reject-errors': 'error',
     'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
     'quote-props': ['error', 'as-needed'],
-    'quotes': ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
+    quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
     'rest-spread-spacing': ['error', 'never'],
-    'semi': ['error', 'always'],
+    semi: ['error', 'always'],
     'semi-spacing': ['error', { before: false, after: true }],
     'space-before-blocks': ['error', 'always'],
     'space-before-function-paren': ['error', 'always'],
@@ -221,7 +221,7 @@ module.exports = {
     'valid-typeof': ['error', { requireStringLiterals: true }],
     'wrap-iife': ['error', 'any', { functionPrototypeMethods: true }],
     'yield-star-spacing': ['error', 'both'],
-    'yoda': ['error', 'never'],
+    yoda: ['error', 'never'],
 
     'import/export': 'error',
     'import/first': 'error',
@@ -240,4 +240,4 @@ module.exports = {
 
     'promise/param-names': 'error',
   },
-}
+};

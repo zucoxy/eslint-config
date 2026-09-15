@@ -1,6 +1,6 @@
-import { createEslintRule } from '../utils'
+import { createEslintRule } from '../utils';
 
-export const RULE_NAME = 'import-dedupe'
+export const RULE_NAME = 'import-dedupe';
 export type MessageIds = 'importDedupe'
 export type Options = []
 
@@ -10,7 +10,6 @@ export default createEslintRule<Options, MessageIds>({
     type: 'problem',
     docs: {
       description: 'Fix duplication in imports',
-      recommended: 'error',
     },
     fixable: 'code',
     schema: [],
@@ -19,15 +18,16 @@ export default createEslintRule<Options, MessageIds>({
     },
   },
   defaultOptions: [],
-  create: (context) => {
+  create: context => {
     return {
       ImportDeclaration(node) {
-        if (node.specifiers.length <= 1)
-          return
+        if (node.specifiers.length <= 1) {
+          return;
+        }
 
-        const names = new Set<string>()
-        node.specifiers.forEach((n) => {
-          const id = n.local.name
+        const names = new Set<string>();
+        node.specifiers.forEach(n => {
+          const id = n.local.name;
           if (names.has(id)) {
             context.report({
               node,
@@ -37,19 +37,20 @@ export default createEslintRule<Options, MessageIds>({
               },
               messageId: 'importDedupe',
               fix(fixer) {
-                const s = n.range[0]
-                let e = n.range[1]
-                if (context.getSourceCode().text[e] === ',')
-                  e += 1
-                return fixer.removeRange([s, e])
+                const s = n.range[0];
+                let e = n.range[1];
+                if (context.sourceCode.text[e] === ',') {
+                  e += 1;
+                }
+                return fixer.removeRange([s, e]);
               },
-            })
+            });
           }
-          names.add(id)
-        })
+          names.add(id);
+        });
 
         // console.log(node)
       },
-    }
+    };
   },
-})
+});

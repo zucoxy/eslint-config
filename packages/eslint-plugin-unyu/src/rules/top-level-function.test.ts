@@ -1,6 +1,9 @@
-import { RuleTester } from '@typescript-eslint/utils/dist/ts-eslint'
-import { it } from 'vitest'
-import rule, { RULE_NAME } from './top-level-function'
+import { createRequire } from 'node:module';
+import { RuleTester } from '@typescript-eslint/utils/ts-eslint';
+import { it } from 'vitest';
+import rule, { RULE_NAME } from './top-level-function';
+
+const require = createRequire(import.meta.url);
 
 const valids = [
   'function foo() {}',
@@ -22,7 +25,7 @@ const valids = [
   'const foo = async (x, y) => x + y',
   'const foo = () => String(123)',
   'const foo = () => ({})',
-]
+];
 
 const invalids = [
   [
@@ -49,12 +52,12 @@ const invalids = [
     'export const foo = async () => \n({})',
     'export async function foo () {\n  return {}\n}',
   ],
-]
+];
 
 it('runs', () => {
   const ruleTester: RuleTester = new RuleTester({
     parser: require.resolve('@typescript-eslint/parser'),
-  })
+  });
 
   ruleTester.run(RULE_NAME, rule, {
     valid: valids,
@@ -63,5 +66,5 @@ it('runs', () => {
       output: i[1],
       errors: [{ messageId: 'topLevelFunctionDeclaration' }],
     })),
-  })
-})
+  });
+});

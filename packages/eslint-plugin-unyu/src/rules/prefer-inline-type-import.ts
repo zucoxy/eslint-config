@@ -1,10 +1,9 @@
 // Ported from https://github.com/gajus/eslint-plugin-canonical/blob/master/src/rules/preferInlineTypeImport.js
 // by Gajus Kuizinas https://github.com/gajus
-import type { TSESTree } from '@typescript-eslint/utils'
-import type { RuleFixer, SourceCode } from '@typescript-eslint/utils/dist/ts-eslint'
-import { createEslintRule } from '../utils'
+import type { TSESLint, TSESTree } from '@typescript-eslint/utils';
+import { createEslintRule } from '../utils';
 
-export const RULE_NAME = 'prefer-inline-type-import'
+export const RULE_NAME = 'prefer-inline-type-import';
 export type MessageIds = 'preferInlineTypeImport'
 export type Options = []
 
@@ -14,7 +13,6 @@ export default createEslintRule<Options, MessageIds>({
     type: 'suggestion',
     docs: {
       description: 'Inline type import',
-      recommended: 'error',
     },
     fixable: 'code',
     schema: [],
@@ -23,42 +21,44 @@ export default createEslintRule<Options, MessageIds>({
     },
   },
   defaultOptions: [],
-  create: (context) => {
-    const sourceCode = context.getSourceCode()
+  create: context => {
+    const sourceCode = context.sourceCode;
     return {
-      ImportDeclaration: (node) => {
+      ImportDeclaration: node => {
         // ignore bare type imports
-        if (node.specifiers.length === 1 && ['ImportNamespaceSpecifier', 'ImportDefaultSpecifier'].includes(node.specifiers[0].type))
-          return
+        if (node.specifiers.length === 1 && ['ImportNamespaceSpecifier', 'ImportDefaultSpecifier'].includes(node.specifiers[0].type)) {
+          return;
+        }
         if (node.importKind === 'type') {
           context.report({
             *fix(fixer) {
-              yield * removeTypeSpecifier(fixer, sourceCode, node)
+              yield * removeTypeSpecifier(fixer, sourceCode, node);
 
-              for (const specifier of node.specifiers)
-                yield fixer.insertTextBefore(specifier, 'type ')
+              for (const specifier of node.specifiers) {
+                yield fixer.insertTextBefore(specifier, 'type ');
+              }
             },
             loc: node.loc,
             messageId: 'preferInlineTypeImport',
             node,
-          })
+          });
         }
       },
-    }
+    };
   },
-})
+});
 
-function * removeTypeSpecifier(fixer: RuleFixer, sourceCode: Readonly<SourceCode>, node: TSESTree.ImportDeclaration) {
-  const importKeyword = sourceCode.getFirstToken(node)
+function * removeTypeSpecifier(fixer: TSESLint.RuleFixer, sourceCode: Readonly<TSESLint.SourceCode>, node: TSESTree.ImportDeclaration) {
+  const importKeyword = sourceCode.getFirstToken(node);
 
-  const typeIdentifier = sourceCode.getTokenAfter(importKeyword)
+  const typeIdentifier = sourceCode.getTokenAfter(importKeyword);
 
-  yield fixer.remove(typeIdentifier)
+  yield fixer.remove(typeIdentifier);
 
   if (importKeyword.loc.end.column + 1 === typeIdentifier.loc.start.column) {
     yield fixer.removeRange([
       importKeyword.range[1],
       importKeyword.range[1] + 1,
-    ])
+    ]);
   }
 }

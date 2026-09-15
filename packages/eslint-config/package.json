@@ -1,6 +1,6 @@
 {
   "name": "@unyu/eslint-config",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "unyu's ESLint config",
   "author": "zucoxy <1078119795@qq.com> (https://github.com/zucoxy/)",
   "license": "MIT",
@@ -8,30 +8,39 @@
   "keywords": [
     "eslint-config"
   ],
+  "exports": {
+    ".": "./index.js",
+    "./flat": "./flat.js",
+    "./package.json": "./package.json"
+  },
   "main": "index.js",
   "files": [
-    "index.js"
+    "*.js"
   ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "eslint": "^8.57.0"
   },
   "dependencies": {
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.8.1",
+    "@eslint/eslintrc": "^3.3.7",
+    "@typescript-eslint/eslint-plugin": "^8.70.0",
+    "@typescript-eslint/parser": "^8.70.0",
     "@unyu/eslint-config-vue": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.59.0",
-    "@typescript-eslint/parser": "^5.59.0",
-    "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsonc": "^2.7.0",
-    "eslint-plugin-n": "^15.7.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-unicorn": "^46.0.0",
-    "eslint-plugin-vue": "^9.11.0",
-    "eslint-plugin-yml": "^1.5.0",
-    "jsonc-eslint-parser": "^2.2.0",
+    "eslint-plugin-html": "^8.2.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsonc": "^2.21.1",
+    "eslint-plugin-n": "^18.3.0",
+    "eslint-plugin-promise": "^7.3.0",
+    "eslint-plugin-unicorn": "^56.0.1",
+    "eslint-plugin-vue": "^10.11.0",
+    "eslint-plugin-yml": "^1.19.1",
+    "jsonc-eslint-parser": "^2.4.0",
     "yaml-eslint-parser": "^1.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.38.0"
+    "eslint": "^8.57.1"
   }
 }

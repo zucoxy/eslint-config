@@ -1,26 +1,37 @@
 {
   "name": "@unyu/eslint-config-vue",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "",
   "author": "zucoxy <1078119795@qq.com> (https://github.com/zucoxy/)",
   "license": "MIT",
+  "homepage": "https://github.com/zucoxy/eslint-config",
   "keywords": [
     "eslint-config"
   ],
+  "exports": {
+    ".": "./index.js",
+    "./flat": "./flat.js",
+    "./package.json": "./package.json"
+  },
   "main": "index.js",
   "files": [
-    "index.js"
+    "*.js"
   ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "eslint": "^8.57.0"
   },
   "dependencies": {
+    "@eslint/eslintrc": "^3.3.7",
     "@unyu/eslint-config-basic": "workspace:*",
     "@unyu/eslint-config-ts": "workspace:*",
-    "eslint-plugin-vue": "^9.11.0",
-    "local-pkg": "^0.4.3"
+    "eslint-plugin-vue": "^10.11.0",
+    "local-pkg": "^1.2.1",
+    "vue-eslint-parser": "^10.4.1"
   },
   "devDependencies": {
-    "eslint": "^8.38.0"
+    "eslint": "^8.57.1"
   }
 }

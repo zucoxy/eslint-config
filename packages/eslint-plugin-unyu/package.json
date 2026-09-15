@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-unyu",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "license": "MIT",
   "homepage": "https://github.com/zucoxy/eslint-config",
   "main": "./dist/index.cjs",
@@ -9,18 +9,23 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "build": "rimraf dist && unbuild",
     "stub": "unbuild --stub",
-    "test": "vitest",
+    "test": "vitest run",
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@typescript-eslint/utils": "^5.59.0"
+    "@typescript-eslint/utils": "^8.70.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.11",
-    "unbuild": "^1.2.1",
-    "vitest": "^0.30.1"
+    "@types/node": "^20.19.43",
+    "@typescript-eslint/parser": "^8.70.0",
+    "unbuild": "^3.6.1",
+    "vite": "^8.3.0",
+    "vitest": "^4.1.11"
   }
 }
